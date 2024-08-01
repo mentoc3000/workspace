@@ -14,6 +14,8 @@ echo 'alias dc="docker compose"' >> ~/.bashrc
 source ~/.bashrc
 
 # Add commands
+echo '' >> ~/.bashrc
+echo 'export PATH="~/.local/bin:$PATH"' >> ~/.bashrc
 mkdir -p ~/.local/bin
 cd ~/.local/bin
 ln -s $SCRIPT_DIR/bin/* .
