@@ -16,7 +16,7 @@ source ~/.bashrc
 # Add commands
 mkdir -p ~/.local/bin
 cd ~/.local/bin
-ln -s $SCRIPT_DIR/bin .
+ln -s $SCRIPT_DIR/bin/* .
 cd ~
 
 # Install pyenv
@@ -30,6 +30,7 @@ source ~/.bashrc
 # Install python and tooling
 pyenv install 3.11.9
 pyenv global 3.11.9
+source ~/.bashrc
 pipx install pipenv
 pipx install poetry
 poetry self add poetry-dotenv-plugin
