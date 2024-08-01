@@ -1,0 +1,2 @@
+#!/bin/bash
+/Users/johnsheehan/.pyenv/shims/python /Users/johnsheehan/git/tools/stay_awake.py

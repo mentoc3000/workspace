@@ -1,0 +1,19 @@
+#!/bin/bash
+IFS="/"
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+GIT_HOST=$(echo "$GIT_REMOTE" | sed 's/.*@//; s/https:\/\/\([^/]*\).*/\1/; s/git@//; s/:[^/]*//; s/\/.*//;' | awk -F '/' '{print $1}')
+
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+else
+    GIT_REMOTE_SYMBOL=" localhost"
+fi
+
+printf "$GIT_REMOTE_SYMBOL${GIT_HOST}"
+IFS=" "

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get the current git branch
+branch=$(git branch --show-current)
+
+# Check if branch contains "/"
+if [[ $branch == *"/"* ]]; then
+    # Replace everything before the last "/"
+    branch=…/$(echo "$branch" | sed 's/.*\///')
+fi
+
+# Print the modified branch name
+echo "$branch"
+
