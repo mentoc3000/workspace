@@ -4,6 +4,7 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 sudo apt update
+sudo apt upgrade -y
 sudo apt install -y lzma-dev liblzma-dev libbz2-dev libsqlite3-dev zlib1g-dev libffi-dev wget curl build-essential libssl-dev openssl vim curl wget libncurses-dev libreadline-dev unzip fontconfig
 
 # Add aliases
