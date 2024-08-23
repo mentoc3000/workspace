@@ -37,6 +37,8 @@ source ~/.bashrc
 pipx install pipenv
 pipx install poetry
 poetry self add poetry-dotenv-plugin
+poetry config virtualenvs.in-project true
+poetry config virtualenvs.prefer-active-python true
 
 # Install nerd fonts
 mkdir -p ~/.local/share/fonts
