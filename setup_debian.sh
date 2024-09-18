@@ -60,6 +60,7 @@ curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
 echo '' >> ~/.bashrc
 echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >> ~/.bashrc
 echo 'export POETRY_VIRTUALENVS_PROMPT=" "' >> ~/.bashrc
+echo 'export POETRY_VIRTUALENVS_IN_PROJECT=true' >> ~/.bashrc
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 mkdir -p ~/.config
 cd ~/.config
