@@ -23,15 +23,21 @@ ln -s $SCRIPT_DIR/bin/* .
 cd ~
 
 # Install pyenv
-curl https://pyenv.run | bash
-echo '' >> ~/.bashrc
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init --path --no-rehash)"' >> ~/.bashrc
-source ~/.bashrc
+if [ ! -d ~/.pyenv ]; then
+    curl https://pyenv.run | bash
+    echo '' >> ~/.bashrc
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init --path --no-rehash)"' >> ~/.bashrc
+    source ~/.bashrc
+else
+    pyenv update
+fi
 
 # Install python and tooling
-pyenv install 3.11.9
+if [ ! -d ~/.pyenv/versions/3.11.9 ]; then
+    pyenv install 3.11.9
+fi
 pyenv global 3.11.9
 source ~/.bashrc
 pipx install pipenv
