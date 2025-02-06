@@ -21,6 +21,15 @@ brew install --cask alt-tab eul rectangle hammerspoon vlc font-hack-nerd-font bz
 # Scroll up to reveal app expose
 defaults write com.apple.dock "scroll-to-open" -bool "true" && killall Dock
 
+# Show hidden files by default
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+
+# Default to list view
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" && killall Finder
+
+# Default to search current folder
+defaults write com.apple.finder "FXDefaultSearchScope" -string "SCcf" && killall Finder
+
 # Add aliases
 echo '' >> ~/.zshrc
 echo 'alias ls="ls --color=auto"' >> ~/.zshrc
