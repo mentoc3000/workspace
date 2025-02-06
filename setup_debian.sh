@@ -35,10 +35,8 @@ else
 fi
 
 # Install python and tooling
-if [ ! -d ~/.pyenv/versions/3.11.9 ]; then
-    pyenv install 3.11.9
-fi
-pyenv global 3.11.9
+pyenv install 3.12
+pyenv global 3.12
 source ~/.bashrc
 pipx install pipenv
 pipx install poetry
