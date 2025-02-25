@@ -16,7 +16,8 @@ if ! command -v brew &>/dev/null; then
 fi
 
 # Install useful tools
-brew install --cask alt-tab eul rectangle hammerspoon vlc font-hack-nerd-font bzip2 ffmpeg readline sqlite3 python-tk neovim zsh-syntax-highlighting zsh-autosuggestions pipx
+brew install font-hack-nerd-font bzip2 ffmpeg readline sqlite3 python-tk neovim zsh-syntax-highlighting zsh-autosuggestions pipx
+brew install --cask alt-tab eul rectangle hammerspoon vlc
 
 # Scroll up to reveal app expose
 defaults write com.apple.dock "scroll-to-open" -bool "true" && killall Dock
