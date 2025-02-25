@@ -69,7 +69,7 @@ echo '' >> ~/.zshrc
 echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >> ~/.zshrc
 echo 'export POETRY_VIRTUALENVS_PROMPT=" "' >> ~/.zshrc
 echo 'export POETRY_VIRTUALENVS_IN_PROJECT=true' >> ~/.zshrc
-echo 'eval "$(starship init bash)"' >> ~/.zshrc
+echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 mkdir -p ~/.config
 cd ~/.config
 rm -rf starship.toml
