@@ -46,7 +46,7 @@ defaults write com.apple.finder "FXDefaultSearchScope" -string "SCcf" && killall
 # Add aliases
 addrc ''
 addrc 'alias ls="ls --color=auto"'
-addrc 'alias la="ls -lah"'
+addrc 'alias la="ls -lah --color=auto"'
 addrc 'alias dc="docker compose"'
 source ~/.zshrc
 

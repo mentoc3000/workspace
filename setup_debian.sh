@@ -16,7 +16,7 @@ sudo apt install -y lzma-dev liblzma-dev libbz2-dev libsqlite3-dev zlib1g-dev li
 # Add aliases
 addrc ''
 addrc 'alias ls="ls --color=auto"'
-addrc 'alias la="ls -lah"'
+
 addrc 'alias dc="docker compose"'
 source ~/.bashrc
 
