@@ -1,5 +1,11 @@
 #!/bin/bash
 
+addrc () {
+    if ! [[ $(cat ~/.bashrc | grep -x "$1") ]]; then
+        echo "$1" >> ~/.bashrc
+    fi
+}
+
 # get current working directory
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -8,15 +14,15 @@ sudo apt upgrade -y
 sudo apt install -y lzma-dev liblzma-dev libbz2-dev libsqlite3-dev zlib1g-dev libffi-dev wget curl build-essential libssl-dev openssl vim curl wget libncurses-dev libreadline-dev unzip fontconfig pipx
 
 # Add aliases
-echo '' >> ~/.bashrc
-echo 'alias ls="ls --color=auto"' >> ~/.bashrc
-echo 'alias la="ls -lah"' >> ~/.bashrc
-echo 'alias dc="docker compose"' >> ~/.bashrc
+addrc ''
+addrc 'alias ls="ls --color=auto"'
+addrc 'alias la="ls -lah"'
+addrc 'alias dc="docker compose"'
 source ~/.bashrc
 
 # Add commands
-echo '' >> ~/.bashrc
-echo 'export PATH="~/.local/bin:$PATH"' >> ~/.bashrc
+addrc ''
+addrc 'export PATH="~/.local/bin:$PATH"'
 mkdir -p ~/.local/bin
 cd ~/.local/bin
 ln -s $SCRIPT_DIR/bin/* .
@@ -25,10 +31,10 @@ cd ~
 # Install pyenv
 if [ ! -d ~/.pyenv ]; then
     curl https://pyenv.run | bash
-    echo '' >> ~/.bashrc
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-    echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-    echo 'eval "$(pyenv init --path --no-rehash)"' >> ~/.bashrc
+    addrc ''
+    addrc 'export PYENV_ROOT="$HOME/.pyenv"'
+    addrc '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"'
+    addrc 'eval "$(pyenv init --path --no-rehash)"'
     source ~/.bashrc
 else
     pyenv update
@@ -56,11 +62,11 @@ cd ~
 
 # Install starship
 curl -sS https://starship.rs/install.sh | sudo sh -s -- -y
-echo '' >> ~/.bashrc
-echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >> ~/.bashrc
-echo 'export POETRY_VIRTUALENVS_PROMPT=" "' >> ~/.bashrc
-echo 'export POETRY_VIRTUALENVS_IN_PROJECT=true' >> ~/.bashrc
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
+addrc ''
+addrc 'export VIRTUAL_ENV_DISABLE_PROMPT=1'
+addrc 'export POETRY_VIRTUALENVS_PROMPT=" "'
+addrc 'export POETRY_VIRTUALENVS_IN_PROJECT=true'
+addrc 'eval "$(starship init bash)"'
 mkdir -p ~/.config
 cd ~/.config
 rm -rf starship.toml
