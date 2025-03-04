@@ -13,6 +13,11 @@ if ! command -v brew &>/dev/null; then
     # Add Homebrew to PATH for current session
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
+    echo 'export PATH="/opt/homebrew/sbin:$PATH"' >> ~/.zshrc
+    echo 'source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
+    echo 'source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
 fi
 
 # Install useful tools
@@ -48,6 +53,9 @@ cd ~
 
 # Install python and tooling
 brew install pyenv
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.zshrc
+echo 'export PIPENV_PYTHON="$HOME/.pyenv/shims/python"' >> ~/.zshrc
+echo 'eval "$(pyenv init --path --no-rehash)"' >> ~/.zshrc
 pyenv install 3.12
 pyenv global 3.12
 source ~/.zshrc
