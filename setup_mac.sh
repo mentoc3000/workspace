@@ -28,7 +28,7 @@ addrc 'source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 addrc 'source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
 
 # Install useful tools
-brew install font-hack-nerd-font bzip2 ffmpeg readline sqlite3 python-tk neovim zsh-syntax-highlighting zsh-autosuggestions pipx
+brew install font-hack-nerd-font bzip2 ffmpeg readline sqlite3 python-tk neovim zsh-syntax-highlighting zsh-autosuggestions pipx wget
 brew install --cask alt-tab eul rectangle hammerspoon vlc
 
 # Scroll up to reveal app expose
@@ -77,6 +77,15 @@ brew install uv
 brew install nvm pnpm
 nvm install node
 nvm use node
+
+
+# Install MesloLGS Nerd Fonts
+cd ~/Library/Fonts
+wget -O "MesloLGS NF Regular.ttf" "https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Regular.ttf"
+wget -O "MesloLGS NF Bold.ttf" "https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold.ttf"
+wget -O "MesloLGS NF Italic.ttf" "https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Italic.ttf"
+wget -O "MesloLGS NF Bold Italic.ttf" "https://github.com/romkatv/dotfiles-public/raw/master/.local/share/fonts/NerdFonts/MesloLGS%20NF%20Bold%20Italic.ttf"
+cd ~
 
 # Install starship
 brew install starship
